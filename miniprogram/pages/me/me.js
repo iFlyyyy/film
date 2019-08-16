@@ -55,13 +55,7 @@ Page({
       wx.hideLoading()
     })
   },
-  onTapLogin(event) {
-
-      this.setData({
-        userInfo: event.detail.userInfo
-      })
-      //console.log(event.detail.userInfo)
-  },
+  
   toDetail(event) {
     this.setData({
       film: event.currentTarget.dataset.id
@@ -101,16 +95,6 @@ Page({
     })
     
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     util.getUserInfo().then(userInfo => {
       this.setData({
@@ -120,24 +104,13 @@ Page({
       console.log('Not Authenticated yet');
     })
   },
+  onTapLogin(event) {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+    this.setData({
+      userInfo: event.detail.userInfo
+    })
+    //console.log(event.detail.userInfo)
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
   onPullDownRefresh() {
     if (this.data.isMy == 0){
       this.getmyReview(() => wx.stopPullDownRefresh())

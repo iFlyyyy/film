@@ -1,8 +1,9 @@
 /* pages/filmDetail/filmDetail.wxss */
-
+.image{
+  text-align: center;
+}
 .poster{
-  width: 50%;
-  margin: 0 auto; 
+ width: 50%;
 }
 .title{
   margin: 20rpx;

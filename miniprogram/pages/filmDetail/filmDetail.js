@@ -1,5 +1,6 @@
 // pages/filmDetail/filmDetail.js
 const db = require('../../utils/db')
+const util = require('../../utils/util')
 Page({
 
   /**
@@ -57,20 +58,28 @@ film:[]
       }
     })
   },
+  onShow: function () {
+    util.getUserInfo().then(userInfo => {
+      this.setData({
+        userInfo
+      })
+    }).catch(err => {
+      console.log('Not Authenticated yet');
+    })
+  },
+  onTapLogin(event) {
+
+    this.setData({
+      userInfo: event.detail.userInfo
+    })
+    //console.log(event.detail.userInfo)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
