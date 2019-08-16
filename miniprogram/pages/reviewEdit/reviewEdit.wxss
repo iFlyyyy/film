@@ -1,0 +1,124 @@
+/* pages/reviewEdit/reviewEdit.wxss */
+.review-content {
+  margin: 29rpx 27rpx 0;
+  padding-bottom: 26rpx;
+  
+  box-shadow: 0 2rpx 13rpx 5rpx rgba(0, 0, 0, 0.02);
+  border-radius: 10rpx;
+}
+
+.review-input {
+  width: 100%;
+  height: 207rpx;
+  padding: 29rpx 34rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  background: #FFFFFF;
+}
+
+.review-placeholder {
+  color: rgba(29, 29, 38, 0.4);
+}
+.poster{
+  text-align: center;
+}
+.image{
+  margin: 20rpx;
+  width: 400rpx;
+}
+.name{
+  text-align: center;
+}
+.review-button {
+ 
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: rgb(75, 189, 255);
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  color: #34373D;
+  position: fixed;
+  bottom: 0;
+}
+.review-button.disable {
+  color: rgba(52, 55, 61, 0.5);
+}
+.add-voice{
+  width: 130rpx;
+  height: 130rpx;
+  margin: 0 auto;
+}
+.audio {
+  display: flex;
+  position: relative;
+  height: 140rpx;
+  line-height: 140rpx;
+  background: #f7f7f7;
+  width: 96%;
+}
+ 
+/* 传语音 */
+.audio{
+  display: flex;
+  position: relative;
+  height:140rpx;
+  line-height: 140rpx;
+  background: #f7f7f7;
+  width: 96%;
+}
+/* 录语音 */
+.laudio_btn{
+  /* width:26rpx;
+  height:26rpx; */
+  margin-left:42rpx
+}
+.audio_img{
+  position: absolute;
+  /* top:-15rpx; */
+  /* right:-15rpx; */
+  right: 0;
+  width:30rpx;
+  height:30rpx;
+}
+.audio_btn{
+  width:88rpx;
+  height:88rpx;
+  margin-top:28rpx;
+   margin-left:16rpx
+}
+.audio_pro{
+  margin-top:36rpx;
+  margin-left:20rpx;
+  width:300rpx;
+}
+.audio_text{
+  font-weight: bold;
+  margin-left:50rpx;
+  color:#90BED5;
+  font-size: 10pt
+}
+.laudio_text1{
+  font-size: 26rpx;
+  margin-left:20rpx;
+  color: #90BED5
+}
+.laudio_text2{
+  font-weight: bold;
+  font-size: 26rpx;
+  margin-left:20rpx;
+  color: #F8624E;
+  width: 381rpx;
+}
+.laudio_pro{
+  width:88rpx;
+  height:88rpx;
+  margin-top:28rpx;
+}
+.play{
+width: 90rpx;
+height: 90rpx;
+margin: 0 auto;
+}

@@ -1,0 +1,22 @@
+/* pages/filmList/filmList.wxss */
+
+.item{
+  display: flex;
+}
+.image{
+ width: 300rpx;
+  height: 500rpx;
+  object-fit: cover;
+  margin: 20rpx;
+}
+.title{
+  display: block
+}
+.name{
+  margin: 20rpx;
+}
+.types{
+  margin: 20rpx;
+font-size: 30rpx;
+line-height: 42rpx;
+}

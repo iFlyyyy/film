@@ -1,0 +1,37 @@
+/* miniprogram/pages/home/home.wxss */
+.poster{
+text-align: center;
+}
+.posterImage{
+  width: 670rpx;
+  height: 960rpx;
+  object-fit: cover;
+}
+.recommend{
+margin: 25rpx auto; 
+text-align: center;
+display: flex;
+font-size: 30rpx;
+line-height: 42rpx;
+height: 30rpx;
+}
+.icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.bottomBar{
+ position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  height: 70rpx;
+}
+.hot{
+   display: inline-block;
+   margin:0 180rpx;
+}
+.me{
+  display: inline-block;
+  margin:0 90rpx;
+}
+

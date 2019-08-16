@@ -1,0 +1,45 @@
+/* pages/reviewPreview/reviewPreview.wxss */
+.film{
+  text-align: center;
+  height: 610rpx;
+}
+.poster{
+  margin: 20rpx;
+  width: 300rpx;
+}
+.review{
+  display: flex;
+  align-self: center;
+  margin: 20rpx;
+  height: 60rpx;
+}
+.avatar{
+  width:60rpx;
+  height: 60rpx;
+  border-radius: 30px;
+}
+
+.content{
+  height: 400rpx;
+  width: 100%;
+  text-align: center;
+}
+.voice{
+  width: 90rpx;
+  height: 90rpx;
+}
+.text{
+width:600rpx;
+height: auto;
+word-wrap: break-word;
+overflow: hidden;
+margin: 0 auto;
+word-break: break-all;
+}
+
+.bottomBar{
+  display: flex;
+  justify-content: space-around;
+	align-items: center;
+	height: 100rpx;
+}

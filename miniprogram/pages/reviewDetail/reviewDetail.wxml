@@ -1,0 +1,22 @@
+<!--pages/reviewDetail/reviewDetail.wxml-->
+<view wx:if="{{!userInfo}}">
+  <login bindonLogin='onTapLogin'></login>
+</view>
+<view wx:else>
+<view class="film">
+  <image class="poster" src="{{film.image}}" mode="widthFix"></image>
+  <view class="name">{{film.name}}</view>
+</view>
+<view class="review">
+  <image class="avatar" src="{{review.avatar}}"></image>
+  <view class="title">{{review.username}}的影评</view>
+</view>
+<view class="content">
+  <view class="text" wx:if="{{!review.musicUrl.length}}">{{review.content}}</view>
+  <image class="voice" src="/images/play.jpg" wx:else bindtap="playVoice"></image>
+</view>
+<view class="bottomBar">
+  <view class="addReview" bindtap="openActionsheet">写影评</view>
+  <view class="collect" bindtap="collect">收藏</view>
+</view>
+</view>

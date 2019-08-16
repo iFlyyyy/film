@@ -1,0 +1,33 @@
+/* pages/filmDetail/filmDetail.wxss */
+
+.poster{
+  width: 50%;
+  margin: 0 auto; 
+}
+.title{
+  margin: 20rpx;
+}
+.types{
+  margin-top: 30rpx;
+  font-size: 30rpx;
+}
+.intro{
+  text-indent:2em;
+  font-size: 30rpx;
+  margin:20rpx;
+}
+.bottomBar{
+ position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  height: 70rpx;
+}
+.toRev{
+   display: inline-block;
+   margin:0 150rpx;
+}
+.addRev{
+  display: inline-block;
+  margin:0 60rpx
+}

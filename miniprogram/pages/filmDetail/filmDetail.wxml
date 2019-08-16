@@ -1,0 +1,12 @@
+<!--pages/filmDetail/filmDetail.wxml-->
+
+  <image class="poster" src="{{film.image}}" mode="widthFix"></image>
+  <view class="title">
+    <view class="name">{{film.name}}</view>
+    <view class="types">{{film.types}}</view>
+  </view>
+<view class="intro">{{film.intro}}</view>
+<view class="bottomBar">
+  <navigator class="toRev" url="/pages/reviewList/reviewList?id={{film._id}}">查看影评</navigator>
+  <view class="addRev" bindtap="openActionsheet">添加影评</view>
+</view>

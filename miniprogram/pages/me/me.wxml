@@ -1,0 +1,34 @@
+<!--miniprogram/pages/me/me.wxml-->
+<view wx:if="{{!userInfo}}">
+  <login bindonLogin='onTapLogin'></login>
+</view>
+<view  wx:else>
+  <view class="user-info">
+    <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user-name">{{userInfo.nickName}}</view>
+  </view>
+</view>
+
+<view class="review-list">
+  <view class="top-bar">
+    <view class="review-title">{{reviewList.length}}reviews</view>
+    <view class="my-review">{{isMy ? "收藏的影评 ↓" : "我的影评 ↓"}}</view>
+    <view class="switch" bindtap="switchReview">切换</view>
+  </view>
+  <view wx:for="{{reviewList}}" wx:key="id" class="review-card" bindtap="toDetail" data-id='{{item}}'>
+    <image class="poster" src="{{item.filmImage}}"></image>
+    <image class="review-avatar" src="{{item.avatar}}"></image>
+    <view class="review-cnt">
+      <view class="review-top">
+        <view class="review-username">{{item.username}}</view>
+        <view class="review-time">{{item.createTime}}</view>
+      </view>
+      <view class="review-content" wx:if="{{!item.musicUrl.length}}">{{item.content}}</view>
+      <image class="record" wx:else src="/images/play.jpg" ></image>
+    </view>
+  </view>
+</view>
+
+<view class="bottomBar" bindtap="back">
+  <view class="text">回到首页</view>
+</view>

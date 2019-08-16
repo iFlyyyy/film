@@ -1,0 +1,12 @@
+<!--pages/filmList/filmList.wxml-->
+<view class="list" wx:for="{{films}}">
+  <navigator class="item" url="/pages/filmDetail/filmDetail?id={{item._id}}">
+    <view class="poster">
+      <image class="image" src="{{item.image}}"></image>
+    </view>
+    <view class="title">
+      <view class="name">{{item.name}}</view>
+      <view class="types">{{item.types}}</view>
+    </view>
+  </navigator>
+</view>

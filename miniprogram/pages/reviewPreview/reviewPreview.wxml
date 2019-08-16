@@ -1,0 +1,17 @@
+<!--pages/reviewPreview/reviewPreview.wxml-->
+<view class="film">
+  <image class="poster" src="{{image}}" mode="widthFix"></image>
+  <view class="name">{{name}}</view>
+</view>
+<view class="review">
+  <image class="avatar" src="{{avatar}}"></image>
+  <view class="title">{{nickName}}的影评</view>
+</view>
+<view class="content">
+  <view class="text" wx:if="{{text}}">{{text}}</view>
+  <image class="voice" src="/images/play.jpg" wx:else bindtap="playVoice"></image>
+</view>
+<view class="bottomBar">
+  <view class="addReview" bindtap="reEdit">重新编辑</view>
+  <view class="collect" bindtap="release">发布影评</view>
+</view>

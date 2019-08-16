@@ -1,0 +1,15 @@
+<!--pages/reviewList/reviewList.wxml-->
+<view class="review-list">
+  <view class="review-title">{{reviewList.length}}reviews</view>
+  <view wx:for="{{reviewList}}" wx:key="id" class="review-card" bindtap="toDetail" data-id='{{item}}'>
+    <image class="review-avatar" src="{{item.avatar}}"></image>
+    <view class="review-cnt">
+      <view class="review-top">
+        <view class="review-username">{{item.username}}</view>
+        <view class="review-time">{{item.createTime}}</view>
+      </view>
+      <view class="review-content" wx:if="{{!item.musicUrl.length}}">{{item.content}}</view>
+      <image class="record" wx:else src="/images/play.jpg" ></image>
+    </view>
+  </view>
+</view>

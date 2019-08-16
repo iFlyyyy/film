@@ -1,0 +1,36 @@
+<!--pages/reviewEdit/reviewEdit.wxml-->
+<radio-group class="radio-group" bindchange="radioChange" wx:if="{{!musicUrl && !reviewContent}}">
+    <label class="radio" wx:for="{{isText}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</radio-group>
+
+<view class="review-content" wx:if="{{text == 0}}">
+  <textarea class="review-input" placeholder-class="review-placeholder" placeholder="Please leave your public comment..." maxlength="255" bindinput='onInput'></textarea>
+</view>
+
+<!-- 开始录音 -->
+<image src="/images/record.jpg" class="add-voice" wx:elif="{{record == 0}}" bindtap="startRecord"></image>
+ 
+<!-- 录音中 -->
+<block wx:if="{{record == 1 && !musicUrl}}">
+<view class='audio'>
+  <view class='laudio_btn' bindtap='remove'>
+    <image src="/images/close.jpg" style='width:26rpx;height:25rpx;'></image>
+  </view>
+  <text class='laudio_text1'>|</text>
+  <text class='laudio_text2'>{{formatedRecordTime}}</text>
+  <view class='laudio_pro'>
+    <image src="/images/pause.jpg" style='width:100%;height:100%' catchtap='keep' wx:if="{{keep}}"></image>
+    <image src="/images/play.jpg" style='width:100%;height:100%' catchtap='pause' wx:else></image>
+  </view>
+  <text class='audio_text' catchtap='stopRecord'>完成</text>
+</view>
+</block>
+<image src="/images/play.jpg" class="play" wx:if="{{musicUrl && text != 0}}" bindtap="playVoice">play</image>
+
+  <view class="poster">
+    <image class="image" src="{{film.image}}" mode="widthFix"></image>
+  </view>
+  <view class="name">{{film.name}}</view>
+<view class="review-button {{!musicUrl && !reviewContent ? 'disable' : ''}}"bindtap="addReview">Submit</view>
