@@ -14,9 +14,8 @@ Page({
    */
   onLoad: function (options) {
     this.getFilms()
-    console.log(this.data.films)
   },
-  getFilms() {
+  getFilms(callback) {
     wx.showLoading({
       title: 'Loading...',
     })
@@ -31,6 +30,9 @@ Page({
           films: data
         })
         console.log(this.data.films)
+        if (callback) {
+          callback()
+        }
       }
     }).catch(err => {
       console.error(err)
@@ -69,8 +71,8 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh() {
+    this.getFilms(() => wx.stopPullDownRefresh())
   },
 
   /**

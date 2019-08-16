@@ -14,10 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      id:options.id
+    })
     this.getReview(options.id)
-    console.log(this.data.reviewList)
+    
   },
-  getReview(id) {
+  getReview(id,callback) {
     wx.showLoading({
       title: 'Loading...',
     })
@@ -33,6 +36,9 @@ Page({
           })
         })
         console.log(data)
+        if (callback) {
+          callback()
+        }
       } else {
         setTimeout(() => wx.navigateBack, 2000)
       }
@@ -82,8 +88,9 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh() {
+    console.log("ok")
+    this.getReview(this.data.id,() => wx.stopPullDownRefresh())
   },
 
   /**

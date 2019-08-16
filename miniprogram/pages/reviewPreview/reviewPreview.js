@@ -60,7 +60,9 @@ Page({
         })
 
         setTimeout(() => {
-          wx.navigateBack()
+          wx.navigateBack({
+            delta: 2
+          })
         }, 1500)
       }
     }).catch(err => {

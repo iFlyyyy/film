@@ -19,7 +19,7 @@ Page({
   onLoad: function (options) {
     this.getCollect()  
   },
-  getCollect(){
+  getCollect(callback){
     wx.showLoading({
       title: 'Loading',
     })
@@ -35,7 +35,7 @@ Page({
         for (let i=0; i<data.length ;i++) {
           db.getCollectReview(data[i].id).then(res => {
             wx.hideLoading()
-
+            console.log(res)
             reviewList.push(res.data[0])
             this.setData({
               reviewList: reviewList.map(review => {
@@ -43,11 +43,13 @@ Page({
                 return review
               })
             })
-            console.log(reviewList)
-            
           })
         }
+        if (callback) {
+          callback()
+        }
       }
+      
     }).catch(err => {
       console.log(err)
       wx.hideLoading()
@@ -87,13 +89,17 @@ Page({
       })
     }
   },
-  getmyReview(){
+  getmyReview(callback){
     db.getmyReview().then(res=>{
       console.log(res)
       this.setData({
         reviewList:res.result.data
       })
+      if (callback) {
+        callback()
+      }
     })
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -132,8 +138,19 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
+  onPullDownRefresh() {
+    if (this.data.isMy == 0){
+      this.getmyReview(() => wx.stopPullDownRefresh())
+      this.setData({
+        isMy: 1
+      })
+    }
+    else{
+      this.getCollect(() => wx.stopPullDownRefresh())
+      this.setData({
+        isMy: 0
+      })
+    }
   },
 
   /**

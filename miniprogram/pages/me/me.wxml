@@ -12,7 +12,7 @@
 <view class="review-list">
   <view class="top-bar">
     <view class="review-title">{{reviewList.length}}reviews</view>
-    <view class="my-review">{{isMy ? "收藏的影评 ↓" : "我的影评 ↓"}}</view>
+    <view class="my-review">{{isMy ? "我的影评 ↓" : "收藏的影评 ↓"}}</view>
     <view class="switch" bindtap="switchReview">切换</view>
   </view>
   <view wx:for="{{reviewList}}" wx:key="id" class="review-card" bindtap="toDetail" data-id='{{item}}'>

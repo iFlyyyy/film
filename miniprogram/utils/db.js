@@ -93,5 +93,8 @@ module.exports = {
         return wx.cloud.callFunction({
           name: 'getmyReview'
         }) 
-  }
+  },
+  getReviews() {
+    return db.collection('review').get()
+  },
 }

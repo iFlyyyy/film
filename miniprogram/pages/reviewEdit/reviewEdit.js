@@ -98,7 +98,7 @@ Page({
     recordTimeInterval = setInterval(function () { //计算时分秒
       var recordTime = that.data.recordTime += 1
       that.setData({
-        formatedRecordTime: util.formatTime(that.data.recordTime),
+        formatedRecordTime: util.formatTimeR(that.data.recordTime),
         recordTime: recordTime
       })
     }, 1000)
@@ -127,7 +127,7 @@ Page({
     recordTimeInterval = setInterval(function () { //计算时分秒
       var recordTime = that.data.recordTime += 1
       that.setData({
-        formatedRecordTime: util.formatTime(that.data.recordTime),
+        formatedRecordTime: util.formatTimeR(that.data.recordTime),
         recordTime: recordTime
       })
   

@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText":"reviewList"
+  "navigationBarTitleText":"reviewList",
+  "enablePullDownRefresh": true
 }

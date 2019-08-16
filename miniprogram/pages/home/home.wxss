@@ -34,4 +34,9 @@ height: 30rpx;
   display: inline-block;
   margin:0 90rpx;
 }
-
+.avatar{
+  border-radius: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}

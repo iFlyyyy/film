@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "filmList"
+  "navigationBarTitleText": "filmList",
+  "enablePullDownRefresh": true
 }

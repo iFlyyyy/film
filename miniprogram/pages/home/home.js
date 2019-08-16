@@ -12,39 +12,31 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+
   onLoad: function (options) {
-    this.getFilms()
-    this.getrandomfilm()
-  },
-  getrandomfilm(){
-    this.setData({
-      film: this.random(0, 4)
-    })
+    this.getReviews()
   },
   random(lower, upper) {
     return Math.floor(Math.random() * (upper - lower + 1)) + lower;
   },
-  getFilms(){
-    wx.showLoading({
-      title: 'Loading...',
-    })
-    db.getFilms().then(res=>{
-      console.log(res)
-      wx.hideLoading()
-      const data = res.data
-      console.log(data)
+  getReviews(callback){
+    db.getReviews().then(res=>{
+      const film=this.random(0,res.data.length - 1) 
       
-      if (data.length) {
-        this.setData({
-          films: data
-        })
-        
-        console.log(this.data.films)
+      this.setData({
+        films:res.data,
+        film
+      })
+      console.log(film)
+      console.log(this.data.films)
+      if (callback) {
+        callback()
       }
-    }).catch(err => {
-      console.error(err)
-      wx.hideLoading()
     })
+    
+  },
+  onPullDownRefresh() {
+    this.getReviews(() => wx.stopPullDownRefresh())   
   },
 
   /**
@@ -74,14 +66,6 @@ Page({
   onUnload: function () {
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */

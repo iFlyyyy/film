@@ -1,14 +1,14 @@
 <!--miniprogram/pages/home/home.wxml-->
-<navigator class="poster" url="/pages/filmDetail/filmDetail?id={{films[film]._id}}">
+<navigator class="poster" url="/pages/filmDetail/filmDetail?id={{films[film].filmId}}">
   <view class="ima">
-    <image class="posterImage" src="{{films[film].image}}" ></image>
+    <image class="posterImage" src="{{films[film].filmImage}}" ></image>
   </view>
-  <view class="title">{{films[film].name}}</view>
+  <view class="title">{{films[film].filmName}}</view>
 </navigator>
-<view class="recommend">
-  <image class="icon"></image>
-  <view class="recommendText">XX给你推荐了一部电影</view>
-</view>
+<navigator class="recommend" url="/pages/reviewDetail/reviewDetail?filmId={{films[film].filmId}}&id={{films[film]._id}}">
+  <image class="avatar" src="{{films[film].avatar}}"></image>
+  <view class="recommendText">{{films[film].username}}给你推荐了一部电影</view>
+</navigator>
 <view class="bottomBar">
   <navigator class="hot" url="/pages/filmList/filmList">热门</navigator>
   <navigator class="me" url="/pages/me/me">我的</navigator>
