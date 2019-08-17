@@ -78,7 +78,7 @@ module.exports = {
       }).catch(() => {
         wx.showToast({
           icon: 'none',
-          title: 'Please Login First'
+          title: 'Not collection'
         })
         return {}
       })

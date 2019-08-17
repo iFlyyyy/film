@@ -9,7 +9,7 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const openid = wxContext.OPENID
 
-  return db.collection('collect').where({
+  return db.collection('collection').where({
     user:openid
   }).get()
   

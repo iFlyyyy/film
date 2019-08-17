@@ -25,9 +25,12 @@ Page({
     })
     db.getCollect().then(res => {
       wx.hideLoading()
-      const data = res.result.data
-      if (data) {
-        //console.log(data)
+      console.log(res)
+      
+      if (res.result.data) {
+
+        const data = res.result.data
+
         this.setData({
           collectId: data
         })
@@ -48,6 +51,11 @@ Page({
         if (callback) {
           callback()
         }
+      }
+      else{
+        this.setData({
+          reviewList:[]
+        })
       }
       
     }).catch(err => {
@@ -86,11 +94,16 @@ Page({
   getmyReview(callback){
     db.getmyReview().then(res=>{
       console.log(res)
-      this.setData({
-        reviewList:res.result.data
-      })
-      if (callback) {
-        callback()
+      if (res.result.data){
+        this.setData({
+          reviewList:res.result.data
+        })
+        if (callback) {
+          callback()
+        }
+      }
+      else{
+        reviewList:[]
       }
     })
     
@@ -113,16 +126,10 @@ Page({
   },
   onPullDownRefresh() {
     if (this.data.isMy == 0){
-      this.getmyReview(() => wx.stopPullDownRefresh())
-      this.setData({
-        isMy: 1
-      })
+      this.getCollect(() => wx.stopPullDownRefresh())
     }
     else{
-      this.getCollect(() => wx.stopPullDownRefresh())
-      this.setData({
-        isMy: 0
-      })
+      this.getmyReview(() => wx.stopPullDownRefresh())
     }
   },
 
