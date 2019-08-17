@@ -30,7 +30,6 @@ Page({
       if (res.result.data) {
 
         const data = res.result.data
-
         this.setData({
           collectId: data
         })
@@ -118,7 +117,6 @@ Page({
     })
   },
   onTapLogin(event) {
-
     this.setData({
       userInfo: event.detail.userInfo
     })

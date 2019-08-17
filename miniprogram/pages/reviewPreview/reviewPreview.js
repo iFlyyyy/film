@@ -60,8 +60,8 @@ Page({
         })
 
         setTimeout(() => {
-          wx.navigateBack({
-            delta: 2
+          wx.navigateTo({
+            url: '/pages/reviewList/reviewList?id='+this.data.filmId,
           })
         }, 1500)
       }

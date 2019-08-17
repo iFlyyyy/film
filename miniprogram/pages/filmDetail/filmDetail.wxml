@@ -13,7 +13,9 @@
   <view class="intro">{{film.intro}}</view>
   <view class="bottomBar">
     <navigator class="toRev" url="/pages/reviewList/reviewList?id={{film._id}}">查看影评</navigator>
-    <view class="addRev" bindtap="openActionsheet">添加影评</view>
+    
+    <view class="addRev" bindtap="openActionsheet" wx:if="{{!id}}" >添加影评</view>
+    <navigator class="addRev" url="/pages/reviewDetail/reviewDetail?id={{id}}&filmId={{filmId}}" wx:else>我的影评</navigator>
   </view>
 
 </view>

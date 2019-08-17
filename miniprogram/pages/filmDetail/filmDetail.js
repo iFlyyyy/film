@@ -22,12 +22,13 @@ film:[]
     })
     db.getfilmDetail(id).then(res=>{
       wx.hideLoading()
-        console.log(res)
+        //console.log(res)
         const data=res.result
         if (data){
           this.setData({
             film:data
           })
+          this.getmythisReview(data._id)
         }else{
         setTimeout(()=>wx.navigateBack,2000)
       }
@@ -73,6 +74,18 @@ film:[]
       userInfo: event.detail.userInfo
     })
     //console.log(event.detail.userInfo)
+  },
+  getmythisReview(id){
+    db.getmythisReview(id).then(res=>{
+      console.log(res)
+      if (res.result.data){
+        const data=res.result.data[0]
+        this.setData({
+          id:data._id,
+          filmId:data.filmId
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
