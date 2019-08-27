@@ -5,10 +5,6 @@ const radio = wx.getRecorderManager()
 const innerAudioContext = wx.createInnerAudioContext()
 var recordTimeInterval;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     film:{},
     reviewContent:"",
@@ -21,9 +17,6 @@ Page({
     recordTime: 0,
     musicUrl:"" //录音地址
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     console.log(options)
     this.isRecord(options)
@@ -79,9 +72,12 @@ Page({
   addReview(event) {
     let content = this.data.reviewContent
     if (!this.data.musicUrl && !content) return
-    console.log(this.data.userInfo)
+    //console.log(this.data.userInfo)
+    
+    const musicUrl=this.data.musicUrl.replace(/\=/g,"等于")
+    console.log(musicUrl)
     wx.navigateTo({
-      url: '/pages/reviewPreview/reviewPreview?text=' + this.data.reviewContent + "&musicUrl=" + this.data.musicUrl + "&image=" + this.data.film.image + "&name=" + this.data.film.name +"&avatar="+this.data.userInfo.avatarUrl+"&nickName="+this.data.userInfo.nickName+"&id="+this.data.film._id+"&filmImage="+this.data.film.image+"&filmName="+this.data.film.name+"&filmTypes="+this.data.film.types+"&filmIntro="+this.data.film.intro
+    url: '/pages/reviewPreview/reviewPreview?text=' + this.data.reviewContent + "&musicUrl=" + musicUrl  + "&image=" + this.data.film.image + "&name=" + this.data.film.name + "&avatar=" + this.data.userInfo.avatarUrl + "&nickName=" + this.data.userInfo.nickName + "&id=" + this.data.film._id + "&filmImage=" + this.data.film.image + "&filmName=" + this.data.film.name + "&filmTypes=" + this.data.film.types + "&filmIntro=" + this.data.film.intro + "&duration=" + this.data.duration
     })
   
   },
@@ -148,6 +144,7 @@ Page({
         duration: res.duration, //音频时长时间戳
         record: true,
       })
+      
     })
   },
   //取消录音
@@ -161,53 +158,4 @@ Page({
     this.innerAudioContext.src = this.data.musicUrl
     this.innerAudioContext.play()
   },
-  
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

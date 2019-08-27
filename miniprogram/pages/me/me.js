@@ -2,20 +2,12 @@
 const util = require('../../utils/util')
 const db = require('../../utils/db')
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     collectId:{},
     reviewList:[],
     film:{},
     isMy:0,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.getCollect()  
   },
@@ -130,18 +122,4 @@ Page({
       this.getmyReview(() => wx.stopPullDownRefresh())
     }
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -2,19 +2,11 @@
 const db = require('../../utils/db')
 const util = require("../../utils/util")
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    //console.log(options)
+    console.log(options)
     this.setData({
       nickName: options.nickName,
       text:options.text,
@@ -49,11 +41,10 @@ Page({
         filmName: this.data.filmName,
         filmTypes: this.data.filmTypes,
         filmIntro: this.data.filmIntro,
+        duration: this.data.duration
     }).then(result => {
       wx.hideLoading()
-
       const data = result.result
-
       if (data) {
         wx.showToast({
           title: 'Succeed'
@@ -77,61 +68,16 @@ Page({
     })
   },
   playVoice() {
+    
+    const musicUrl = this.data.musicUrl.replace("等于", "=")
+    console.log(musicUrl)
     　　　　this.innerAudioContext = wx.createInnerAudioContext()
-    this.innerAudioContext.src = this.data.musicUrl
+    this.innerAudioContext.src = musicUrl
     　　　　this.innerAudioContext.play()
   },
-  reEdit(){
+  reEdit(){ 
 wx.navigateBack({
   delta: 1
   })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
