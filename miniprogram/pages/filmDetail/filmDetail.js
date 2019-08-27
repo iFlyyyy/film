@@ -78,7 +78,7 @@ film:[]
   getmythisReview(id){
     db.getmythisReview(id).then(res=>{
       console.log(res)
-      if (res.result.data){
+      if (res.result.data.length){
         const data=res.result.data[0]
         this.setData({
           id:data._id,

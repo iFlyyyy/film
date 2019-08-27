@@ -21,8 +21,8 @@ Page({
     //console.log(options)
     this.getReviewDetail(options.id)
     this.getfilmDetail(options.filmId)
-    this.getReview(options.filmId)
-    console.log(this.data.review)
+    this.getmyReview(options.filmId)
+    //console.log(this.data.review)
   },
   getReviewDetail(id) {
     wx.showLoading({
@@ -73,11 +73,11 @@ Page({
     //console.log(this.data.review)
   },
   openActionsheet() {
+    console.log(this.data.reviewList)
     var that = this
-    for ( const i of this.data.reviewList){
-     if (i.username == this.data.userInfo.nickName){
-       this.getReviewDetail(i._id)
-      }
+    if (this.data.reviewList.length){
+      this.getReviewDetail(this.data.reviewList[0]._id)
+    }
     else{
        wx.showActionSheet({
          itemList: ['文字', '语音'],
@@ -98,16 +98,17 @@ Page({
          }
        })
     }  
-    }
   },
-  getReview(id) {
+  getmyReview(id) {
     wx.showLoading({
       title: 'Loading...',
     })
-    db.getReview(id).then(res => {
+    //console.log(id)
+    db.getmythisReview(id).then(res => {
       wx.hideLoading()
-      console.log(res)
-      const data = res.data
+      //console.log(res)
+      const data = res.result.data
+      //console.log(res)
       if (data) {
         this.setData({
           reviewList: data

@@ -98,7 +98,7 @@ module.exports = {
     return db.collection('review').get()
   },
   getmythisReview(id){
-    console.log(id)
+    //console.log(id)
     return wx.cloud.callFunction({
       name: 'getmyReviewThis',
       data:{
