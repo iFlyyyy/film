@@ -38,8 +38,18 @@ word-break: break-all;
 }
 
 .bottomBar{
-  display: flex;
-  justify-content: space-around;
-	align-items: center;
-	height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  background: #ffffff;
+  width: 100%;
+  height: 70rpx;
+}
+.addReview{
+  display: inline-block;
+  margin:0 170rpx;
+ 
+}
+.collect{
+  display: inline-block;
+  margin:0 60rpx
 }

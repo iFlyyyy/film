@@ -60,7 +60,7 @@ Page({
         })
 
         setTimeout(() => {
-          console.log(this.data.id)
+          //console.log(this.data.id)
           wx.navigateTo({
             url: '/pages/reviewList/reviewList?id='+this.data.id,
           })
