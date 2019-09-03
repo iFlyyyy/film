@@ -87,7 +87,10 @@ Page({
       console.log(res)
       if (res.result.data){
         this.setData({
-          reviewList:res.result.data
+          reviewList: res.result.data.map(review => {
+            review.createTime = util.formatTime(review.createTime, 'yyyy/MM/dd')
+            return review
+          })
         })
         if (callback) {
           callback()

@@ -59,10 +59,12 @@ Page({
     })
   },
   playVoice() {
-    this.innerAudioContext = wx.createInnerAudioContext()
-    this.innerAudioContext.src = this.data.review.cloudId
-    this.innerAudioContext.play()
     //console.log(this.data.review)
+    const musicUrl = this.data.review.cloudId.replace("等于", "=")
+    this.innerAudioContext = wx.createInnerAudioContext()
+    this.innerAudioContext.src = musicUrl
+    this.innerAudioContext.play()
+    
   },
   openActionsheet() {
     console.log(this.data.reviewList)
